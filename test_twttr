@@ -1,0 +1,17 @@
+import pytest
+from twttr import shorten
+
+def test_twitter():
+    assert shorten("twitter") == "twttr"
+
+def test_lowercase():
+    assert shorten("abc") == "bc"
+
+def test_uppercase():
+    assert shorten("APPLE") == ("PPL")
+
+def test_numbers():
+    assert shorten("CS50") == ("CS50")
+
+def test_punctuation():
+    assert shorten("CS50!") == ("CS50!")
