@@ -6,7 +6,6 @@ def main():
 def shorten(text):
 
     text = text.split()
-
     new_text = str()
 
     for word in text:
