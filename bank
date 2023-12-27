@@ -1,0 +1,27 @@
+def main():
+    phrase = input("Greeting: ")
+    money = value(phrase)
+    money = int(money)
+    print("${}".format(money))
+
+def value(words):
+    words = words.lower().replace(",", "").split()
+
+    first_word = words[0]
+    first_letter = words[0][0]
+
+    money = int()
+
+    if first_word == "hello":
+        money = 0
+        return money
+    elif first_letter == "h":
+        money = 20
+        return money
+    else:
+        money = 100
+        return money
+
+
+if __name__ == "__main__":
+    main()
