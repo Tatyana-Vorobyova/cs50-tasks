@@ -1,0 +1,44 @@
+def main():
+    tank = input("Fraction: ")
+    converted = convert(tank)
+    output = gauge(converted)
+    print(output)
+
+def convert(fraction):
+
+    fraction = fraction.split("/")
+    while True:
+        try:
+            dividend = fraction[0]
+            divisor = fraction[1]
+
+            if dividend > divisor or dividend.isdigit() == False or divisor.isdigit() == False:
+                raise ValueError
+            if int(divisor) == 0:
+                raise ZeroDivisionError
+
+            dividend = int(dividend)
+            divisor = int(divisor)
+
+            percent = int()
+            percent = (dividend / divisor) * 100
+
+        except (ValueError, ZeroDivisionError):
+            fraction = input("Fraction: ").split("/")
+            continue
+        else:
+            return percent
+
+
+def gauge(percentage):
+
+        if percentage <= 1:
+            return "E"
+        elif percentage >= 99:
+            return "F"
+        else:
+            return "{}%".format(int(percentage))
+
+
+if __name__ == "__main__":
+    main()
