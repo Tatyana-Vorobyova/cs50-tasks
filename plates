@@ -1,0 +1,50 @@
+def main():
+    plate = input("Plate: ")
+    if is_valid(plate):
+        print("Valid")
+    else:
+        print("Invalid")
+
+
+def is_valid(s):
+    s = s.upper()
+
+    # Find the first number
+    first_digit = int()
+    for sign in s:
+        if sign.isdigit():
+            first_digit = sign
+            break
+
+    # Count the number of all characters
+    counter = int()
+    for sign in s:
+        counter += 1
+
+    # 4. Detect non-alphabetic character and non-digit
+    punctuation_sign = int()
+    for sign in s:
+        if sign.isalpha() == False and sign.isdigit() == False:
+            punctuation_sign += 1
+
+    if punctuation_sign > 0:
+        return False
+
+    # 5. Detect numbers in the middle of a plate, numbers must come at the end
+    for i in range(1, len(s) - 1):
+        if s[i].isdigit() and s[i + 1].isalpha():
+            return False
+
+    # Requirements:
+    # 1. Start with at least 2 letters
+    # 2. The first number used cannot be a ‘0’
+    # 3. Maximum of 6 characters (letters or numbers) and a minimum of 2 characters
+    # 4. and # 5. - see above
+    if s[0:2].isalpha() and first_digit != "0" and 2 <= counter <= 6:
+        return True
+    else:
+        return False
+
+
+if __name__ == "__main__":
+    main()
