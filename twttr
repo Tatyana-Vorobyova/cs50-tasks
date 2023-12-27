@@ -1,0 +1,21 @@
+def main():
+    text = input("Input: ")
+    new_text = shorten(text)
+    print("Output:", new_text)
+
+def shorten(text):
+
+    text = text.split()
+
+    new_text = str()
+
+    for word in text:
+        for letter in word:
+            if letter.lower() != "a" and letter.lower() != "e" and letter.lower() != "i" and letter.lower() != "o" and letter.lower() != "u":
+                new_text = new_text + letter
+        #new_text = new_text + " "
+
+    return new_text
+
+if __name__ == "__main__":
+    main()
